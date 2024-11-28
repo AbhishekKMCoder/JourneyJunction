@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index2.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Tour Destination</title>
+</head>
+<body>
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Tour Destination</h4>
+            <p class="card-description"> Fill in the details for the new tour destination </p>
+            <form class="forms-sample" method="post" action="{% url 'add_tour' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Existing fields -->
+                <div class="form-group">
+                    <label for="tourName">Destination Name</label>
+                    <input type="text" class="form-control" id="tourName" placeholder="Enter destination name" name="destination">
+                </div>
+
+                <div class="form-group">
+                    <label for="tourLocation">Location</label>
+                    <input type="text" class="form-control" id="tourLocation" placeholder="Enter location" name="location">
+                </div>
+
+                <div class="form-group">
+                    <label for="tourDescription">Description</label>
+                    <textarea class="form-control" id="tourDescription" rows="4" placeholder="Enter description" name="description"></textarea>
+                </div>
+
+                <!-- New field for Long Description -->
+                <div class="form-group">
+                    <label for="longDescription">Long Description</label>
+                    <textarea class="form-control" id="longDescription" rows="6" placeholder="Enter long description" name="long_description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="tourPrice">Price</label>
+                    <input type="number" class="form-control" id="tourPrice" placeholder="Enter price" name="price">
+                </div>
+
+                <div class="form-group">
+                    <label for="tourDuration">Duration (days)</label>
+                    <input type="number" class="form-control" id="tourDuration" placeholder="Enter duration" name="duration">
+                </div>
+
+                <div class="form-group">
+                    <label for="tourNights">Duration (Nights)</label>
+                    <input type="number" class="form-control" id="tourNights" placeholder="Enter nights" name="nights">
+                </div>
+
+                <!-- New fields for activities -->
+                <div class="form-group">
+                    <label for="activity1">Activity 1</label>
+                    <input type="text" class="form-control" id="activity1" placeholder="Enter first activity" name="activity1">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity2">Activity 2</label>
+                    <input type="text" class="form-control" id="activity2" placeholder="Enter second activity" name="activity2">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity3">Activity 3</label>
+                    <input type="text" class="form-control" id="activity3" placeholder="Enter third activity" name="activity3">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity4">Activity 4</label>
+                    <input type="text" class="form-control" id="activity4" placeholder="Enter fourth activity" name="activity4">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity5">Activity 5</label>
+                    <input type="text" class="form-control" id="activity5" placeholder="Enter fifth activity" name="activity5">
+                </div>
+
+                <div class="form-group">
+                    <input type="file" name="image">
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-dark">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

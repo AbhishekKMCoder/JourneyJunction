@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'index2.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tour Packages</title>
+</head>
+<body>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Tour Packages</h4>
+            <p class="card-description"> Add class <code>.table-bordered</code> </p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                            <th>Long Description</th> <!-- New column for Long Description -->
+                            <th>Price</th>
+                            <th>Duration</th>
+                            <th>Nights</th> <!-- New column for Nights -->
+                            <th>Activity 1</th> <!-- New column for Activity 1 -->
+                            <th>Activity 2</th> <!-- New column for Activity 2 -->
+                            <th>Activity 3</th> <!-- New column for Activity 3 -->
+                            <th>Activity 4</th> <!-- New column for Activity 4 -->
+                            <th>Activity 5</th> <!-- New column for Activity 5 -->
+                            <th>Image</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in packages %}
+                            <tr>
+                                <td>{{ d.id }}</td>
+                                <td>{{ d.Name }}</td>
+                                <td>{{ d.Location }}</td>
+                                <td>{{ d.Description }}</td>
+                                <td>{{ d.LongDescription }}</td> <!-- Display Long Description -->
+                                <td>{{ d.Price }}</td>
+                                <td>{{ d.Duration }}</td>
+                                <td>{{ d.Nights }}</td> <!-- Display Nights -->
+                                <td>{{ d.Activity1 }}</td> <!-- Display Activity 1 -->
+                                <td>{{ d.Activity2 }}</td> <!-- Display Activity 2 -->
+                                <td>{{ d.Activity3 }}</td> <!-- Display Activity 3 -->
+                                <td>{{ d.Activity4 }}</td> <!-- Display Activity 4 -->
+                                <td>{{ d.Activity5 }}</td> <!-- Display Activity 5 -->
+                                <td><img src="{{ d.Image.url }}" height="100px" width="100px"></td>
+                                <td>
+                                    <a href="{% url 'edit_package' des_id=d.id %}">
+                                        <button class="btn btn-outline-primary">Edit</button>
+                                    </a>
+                                    <a href="{% url 'delete_package' des_id=d.id %}">
+                                        <button class="btn btn-outline-danger">Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

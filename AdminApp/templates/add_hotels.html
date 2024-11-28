@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index2.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Add Hotel Booking</title>
+</head>
+<body>
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Hotel Booking</h4>
+            <p class="card-description"> Fill in the details for the new hotel booking </p>
+            <form class="forms-sample" method="post" action="{% url 'add_hotels_list' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Hotel Name Field -->
+                <div class="form-group">
+                    <label for="hotelName">Hotel Name</label>
+                    <input type="text" class="form-control" id="hotelName" placeholder="Enter hotel name" name="HotelName">
+                </div>
+
+                <!-- Hotel Rating Field -->
+                <div class="form-group">
+                    <label for="hotelRating">Rating</label>
+                    <input type="number" step="0.1" class="form-control" id="hotelRating" placeholder="Enter hotel rating (e.g., 4.5)" name="HotelRating">
+                </div>
+
+                <!-- Hotel Price Field -->
+                <div class="form-group">
+                    <label for="hotelPrice">Price (per night)</label>
+                    <input type="number" step="0.01" class="form-control" id="hotelPrice" placeholder="Enter price per night" name="HotelPrice">
+                </div>
+
+                <!-- Hotel Location Field -->
+                <div class="form-group">
+                    <label for="hotelLocation">Location</label>
+                    <input type="text" class="form-control" id="hotelLocation" placeholder="Enter hotel location" name="HotelLocation">
+                </div>
+
+                <!-- Hotel Description Field -->
+                <div class="form-group">
+                    <label for="hotelDescription">Description</label>
+                    <textarea class="form-control" id="hotelDescription" rows="4" placeholder="Enter hotel description" name="HotelDescription"></textarea>
+                </div>
+
+
+                <!-- Hotel Image Field -->
+                <div class="form-group">
+                    <label for="hotelImage">Hotel Image</label>
+                    <input type="file" class="form-control-file" id="hotelImage" name="HotelImage">
+                </div>
+
+                <!-- Hotel Link Field -->
+                <div class="form-group">
+                    <label for="hotelLink">Hotel Link</label>
+                    <input type="url" class="form-control" id="hotelLink" placeholder="Enter hotel details link" name="HotelLink">
+                </div>
+
+                <!-- Submit and Cancel Buttons -->
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="button" class="btn btn-dark">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

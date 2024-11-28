@@ -1,0 +1,53 @@
+<!-- display_hotels.html -->
+<!DOCTYPE html>
+{% extends 'index2.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Bookings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center">Hotel Bookings</h2>
+
+    <!-- Success Message Display -->
+    {% if messages %}
+        <div class="alert alert-success">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="row mt-4">
+        {% for hotel in data %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                {% if hotel.HotelImage %}
+                    <img src="{{ hotel.HotelImage.url }}" class="card-img-top" alt="{{ hotel.HotelName }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ hotel.HotelName }}</h5>
+                    <p><strong>Rating:</strong> {{ hotel.HotelRating }} ⭐</p>
+                    <p><strong>Price per night:</strong> ${{ hotel.HotelPrice }}</p>
+                    <p><strong>Location:</strong> {{ hotel.HotelLocation }}</p>
+                    <p>{{ hotel.HotelDescription|truncatewords:20 }}</p>
+                    {% if hotel.HotelLink %}
+                        <a href="{{ hotel.HotelLink }}" class="btn btn-primary" target="_blank">More Details</a>
+                    {% endif %}
+                    <br>
+                    <a href="{% url 'update_hotels_list' hotel.id %}" class="btn btn-warning mt-2">Edit</a>
+                    <a href="{% url 'delete_hotel_list' hotel.id %}" class="btn btn-danger mt-2">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
