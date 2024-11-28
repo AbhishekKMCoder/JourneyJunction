@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://pixabay.com/photos/alipay-mobile-payment-qrcode-5417256/') no-repeat center center/cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4a90e2;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4a90e2;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: #4a90e2;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-container">
+        <h2>Proceed to Payment</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label >{{customer.Name}}</label>
+
+            </div>
+            <div class="form-group">
+                <label > RS :{{customer.Price}} only </label>
+
+            </div>
+            <button class="btn">Make Payment</button>
+        </form>
+    </div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_vMHnnDmKFRgRmn"
+    data-amount="{{ payy_str }}"
+    data-currency="INR"
+    {% if payment %}
+    data-order_id="{{ payment.order_id  }}"
+    {% endif %}
+    data-name="Bigmart"
+    data-description="Your description"
+    data-image=""
+    data-prefill.name="abc"
+    data-prefill.email="abc@gmail.com"
+    data-theme.color="#4badeb">
+</script>
+
+</body>
+
+</html>

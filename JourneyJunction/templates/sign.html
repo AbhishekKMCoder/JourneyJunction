@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In- JourneyJunction</title>
+     <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg-img {
+            background-image: url("{% static 'images/beach_hotel.jpg' %}"); /* Ensure this path is correct */
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-img">
+    <div class="form-container">
+        <h2 class="text-center mb-4">Sign In</h2>
+        <form action="{% url 'signup' %}" method="POST"> <!-- Replace action with your form handler -->
+             {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="phonenumber" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter your phone number" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Sign In</button>
+
+<!--            <div class="text-center mt-3">-->
+<!--                <p>Don't have an account? <a href="#">Sign Up</a></p>-->
+<!--            </div>-->
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

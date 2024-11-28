@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+{% load static  %}
+<html lang="en">
+
+
+
+
+  <head>
+    <title>JourneyJunction</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+
+
+
+	   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">JourneyJunction</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+           <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href=" {% url 'about' %}" class="nav-link">About</a></li>
+         <li class="nav-item"><a href=" {% url 'tour' %}" class="nav-link">Tour</a></li>
+           <li class="nav-item"><a href="{% url 'hotel' %}" class="nav-link">Hotels</a></li>
+         <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+         <li class="nav-item cta"><a href="{% url 'logout' %}" class="nav-link"><span>Log Out </span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap js-fullheight" style="background-image: url('{% static 'images/bg_5.jpg' %}');" >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="hotel.html">Hotel</a></span> <span>Hotel Single</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels Details</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+        	<div class="col-lg-3 sidebar">
+        		<div class="sidebar-wrap bg-light ftco-animate">
+        			<h3 class="heading mb-4">Find City</h3>
+        			<form action="#">
+        				<div class="fields">
+		              <div class="form-group">
+		                <input type="text" class="form-control" placeholder="Destination, City">
+		              </div>
+		              <div class="form-group">
+		                <div class="select-wrap one-third">
+	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	                    <select name="" id="" class="form-control" placeholder="Keyword search">
+	                      <option value="">Select Location</option>
+	                      <option value="">San Francisco USA</option>
+	                      <option value="">Berlin Germany</option>
+	                      <option value="">Lodon United Kingdom</option>
+	                      <option value="">Paris Italy</option>
+	                    </select>
+	                  </div>
+		              </div>
+		              <div class="form-group">
+		                <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
+		              </div>
+		              <div class="form-group">
+		                <input type="text" id="checkin_date" class="form-control" placeholder="Date to">
+		              </div>
+		              <div class="form-group">
+		              	<div class="range-slider">
+		              		<span>
+										    <input type="number" value="25000" min="0" max="120000"/>	-
+										    <input type="number" value="50000" min="0" max="120000"/>
+										  </span>
+										  <input value="1000" min="0" max="120000" step="500" type="range"/>
+										  <input value="50000" min="0" max="120000" step="500" type="range"/>
+										  </svg>
+										</div>
+		              </div>
+		              <div class="form-group">
+		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+		              </div>
+		            </div>
+	            </form>
+        		</div>
+        		<div class="sidebar-wrap bg-light ftco-animate">
+        			<h3 class="heading mb-4">Star Rating</h3>
+        			<form method="post" class="star-rating">
+							  <div class="form-check">
+									<input type="checkbox" class="form-check-input" id="exampleCheck1">
+									<label class="form-check-label" for="exampleCheck1">
+										<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+									</label>
+							  </div>
+							  <div class="form-check">
+						      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+						      <label class="form-check-label" for="exampleCheck1">
+						    	   <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
+						      </label>
+							  </div>
+							  <div class="form-check">
+						      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+						      <label class="form-check-label" for="exampleCheck1">
+						      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+						     </label>
+							  </div>
+							  <div class="form-check">
+							    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+						      <label class="form-check-label" for="exampleCheck1">
+						      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+						      </label>
+							  </div>
+							  <div class="form-check">
+						      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+						      <label class="form-check-label" for="exampleCheck1">
+						      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+							    </label>
+							  </div>
+							</form>
+        		</div>
+          </div>
+          <div class="col-lg-9">
+          	<div class="row">
+
+
+
+<div class="col-md-12 ftco-animate">
+    <div class="single-slider owl-carousel">
+        <div class="col-md-12 ftco-animate">
+    <div class="single-slider owl-carousel">
+        <div class="item">
+            {% if tour.Image %}
+                <div class="hotel-img" style="background-image: url('{{ tour.Image.url }}');"></div>
+            {% else %}
+                <div class="hotel-img" style="background-image: url('{% static 'images/default-tour.jpg' %}');"></div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+          		</div>
+
+
+			  <div class="col-md-12  mt-4 mb-5 ftco-animate">
+    <img src="{{ tour.Image.url }}" alt="{{ tour.Name }}" class="img-fluid mb-4">
+    <h2>{{ tour.Name }}</h2>
+    <h3>{{ tour.Price }}</h3>
+    <p class="rate mb-5">
+        <span class="loc"><a href="#"><i class="icon-map"></i> {{ tour.Location }}</a></span>
+        <span class="star">
+           {% for i in range|slice:":5" %}
+    <i class="icon-star{% if forloop.counter > tour.star %}-o{% endif %}"></i>
+			{% endfor %}
+
+            {{ tour.star }} Rating
+        </span>
+    </p>
+    <p>{{ tour.Description }}</p>
+
+    <div class="tour-activities mt-5 mb-5">
+        <h3 class="activities-heading mb-4">Things to Do</h3>
+        <div class="d-md-flex">
+            <div class="activities-column">
+                {% if tour.Activity1 %}<p><strong>Activity 1:</strong> {{ tour.Activity1 }}</p>{% endif %}
+                {% if tour.Activity2 %}<p><strong>Activity 2:</strong> {{ tour.Activity2 }}</p>{% endif %}
+                {% if tour.Activity3 %}<p><strong>Activity 3:</strong> {{ tour.Activity3 }}</p>{% endif %}
+                {% if tour.Activity4 %}<p><strong>Activity 4:</strong> {{ tour.Activity4 }}</p>{% endif %}
+            </div>
+            <div class="activities-column ml-md-5">
+                {% if tour.Activity5 %}<p><strong>Activity 5:</strong> {{ tour.Activity5 }}</p>{% endif %}
+            </div>
+        </div>
+    </div>
+    <p>{{ tour.LongDescription }}</p>
+</div>
+
+
+
+<!--          		<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">-->
+<!--          			<span>Our Best hotels &amp; Rooms</span>-->
+<!--          			<h2>{{tour.Name}}</h2>-->
+<!--					<h3>{{tour.Price}}</h3>-->
+<!--          			<p class="rate mb-5">-->
+<!--          				<span class="loc"><a href="#"><i class="icon-map"></i> 291 South 21th Street, Suite 721 New York NY 10016</a></span>-->
+<!--          				<span class="star">-->
+<!--    							<i class="icon-star"></i>-->
+<!--    							<i class="icon-star"></i>-->
+<!--    							<i class="icon-star"></i>-->
+<!--    							<i class="icon-star"></i>-->
+<!--    							<i class="icon-star-o"></i>-->
+<!--    							8 Rating</span>-->
+<!--    						</p>-->
+<!--    						<p>{{tour.Description}}</p>-->
+
+
+<!--    					<div class="tour-activities mt-5 mb-5">-->
+<!--    &lt;!&ndash; Activities Section Header &ndash;&gt;-->
+<!--    <h3 class="activities-heading mb-4">Things to Do</h3>-->
+
+<!--    <div class="d-md-flex">-->
+<!--        &lt;!&ndash; First Column: Activities 1 to 4 &ndash;&gt;-->
+<!--        <div class="activities-column">-->
+<!--            {% if tour.Activity1 %}-->
+<!--                <p class="activity-item"><strong>Activity 1:</strong> {{ tour.Activity1 }}</p>-->
+<!--            {% endif %}-->
+<!--            {% if tour.Activity2 %}-->
+<!--                <p class="activity-item"><strong>Activity 2:</strong> {{ tour.Activity2 }}</p>-->
+<!--            {% endif %}-->
+<!--            {% if tour.Activity3 %}-->
+<!--                <p class="activity-item"><strong>Activity 3:</strong> {{ tour.Activity3 }}</p>-->
+<!--            {% endif %}-->
+<!--            {% if tour.Activity4 %}-->
+<!--                <p class="activity-item"><strong>Activity 4:</strong> {{ tour.Activity4 }}</p>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Second Column: Activities 5 to 8 &ndash;&gt;-->
+<!--        <div class="activities-column ml-md-5">-->
+<!--            {% if tour.Activity5 %}-->
+<!--                <p class="activity-item"><strong>Activity 5:</strong> {{ tour.Activity5 }}</p>-->
+<!--            {% endif %}-->
+<!--            {% if tour.Activity6 %}-->
+<!--                <p class="activity-item"><strong>Activity 6:</strong> {{ tour.Activity6 }}</p>-->
+<!--            {% endif %}-->
+<!--            {% if tour.Activity7 %}-->
+<!--                <p class="activity-item"><strong>Activity 7:</strong> {{ tour.Activity7 }}</p>-->
+<!--            {% endif %}-->
+<!--            {% if tour.Activity8 %}-->
+<!--                <p class="activity-item"><strong>Activity 8:</strong> {{ tour.Activity8 }}</p>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+
+<!--    						<p>{{tour.LongDescription}}</p>-->
+<!--          		</div>-->
+
+
+
+
+
+
+
+<!--          		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">-->
+<!--          			<h4 class="mb-4">Our Rooms</h4>-->
+<!--          			<div class="row">-->
+<!--          				<div class="col-md-4">-->
+<!--				    				<div class="destination">-->
+<!--				    					<a href="hotel-single.html" class="img img-2" style="background-image: url(images/room-4.jpg);"></a>-->
+<!--				    					<div class="text p-3">-->
+<!--				    						<div class="d-flex">-->
+<!--				    							<div class="one">-->
+<!--						    						<h3><a href="hotel-single.html">Hotel, Italy</a></h3>-->
+<!--						    						<p class="rate">-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star-o"></i>-->
+<!--						    							<span>8 Rating</span>-->
+<!--						    						</p>-->
+<!--					    						</div>-->
+<!--					    						<div class="two">-->
+<!--					    							<span class="price per-price">$40<br><small>/night</small></span>-->
+<!--				    							</div>-->
+<!--				    						</div>-->
+<!--				    						<p>Far far away, behind the word mountains, far from the countries</p>-->
+<!--				    						<hr>-->
+<!--				    						<p class="bottom-area d-flex">-->
+<!--				    							<span><i class="icon-map-o"></i> Miami, Fl</span>-->
+<!--				    							<span class="ml-auto"><a href="#">Book Now</a></span>-->
+<!--				    						</p>-->
+<!--				    					</div>-->
+<!--				    				</div>-->
+<!--				    			</div>-->
+<!--				    			<div class="col-md-4">-->
+<!--				    				<div class="destination">-->
+<!--				    					<a href="hotel-single.html" class="img img-2" style="background-image: url(images/room-5.jpg);"></a>-->
+<!--				    					<div class="text p-3">-->
+<!--				    						<div class="d-flex">-->
+<!--				    							<div class="one">-->
+<!--						    						<h3><a href="hotel-single.html">Hotel, Italy</a></h3>-->
+<!--						    						<p class="rate">-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star-o"></i>-->
+<!--						    							<span>8 Rating</span>-->
+<!--						    						</p>-->
+<!--					    						</div>-->
+<!--					    						<div class="two">-->
+<!--					    							<span class="price per-price">$40<br><small>/night</small></span>-->
+<!--				    							</div>-->
+<!--				    						</div>-->
+<!--				    						<p>Far far away, behind the word mountains, far from the countries</p>-->
+<!--				    						<hr>-->
+<!--				    						<p class="bottom-area d-flex">-->
+<!--				    							<span><i class="icon-map-o"></i> Miami, Fl</span>-->
+<!--				    							<span class="ml-auto"><a href="#">Book Now</a></span>-->
+<!--				    						</p>-->
+<!--				    					</div>-->
+<!--				    				</div>-->
+<!--				    			</div>-->
+
+
+<!--				    			<div class="col-md-4">-->
+<!--				    				<div class="destination">-->
+<!--				    					<a href="hotel-single.html" class="img img-2" style="background-image: url(images/room-6.jpg);"></a>-->
+<!--				    					<div class="text p-3">-->
+<!--				    						<div class="d-flex">-->
+<!--				    							<div class="one">-->
+<!--						    						<h3><a href="hotel-single.html">Hotel, Italy</a></h3>-->
+<!--						    						<p class="rate">-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star-o"></i>-->
+<!--						    							<span>8 Rating</span>-->
+<!--						    						</p>-->
+<!--					    						</div>-->
+<!--					    						<div class="two">-->
+<!--					    							<span class="price per-price">$40<br><small>/night</small></span>-->
+<!--				    							</div>-->
+<!--				    						</div>-->
+<!--				    						<p>Far far away, behind the word mountains, far from the countries</p>-->
+<!--				    						<hr>-->
+<!--				    						<p class="bottom-area d-flex">-->
+<!--				    							<span><i class="icon-map-o"></i> Miami, Fl</span>-->
+<!--				    							<span class="ml-auto"><a href="#">Book Now</a></span>-->
+<!--				    						</p>-->
+<!--				    					</div>-->
+<!--				    				</div>-->
+<!--				    			</div>-->
+<!--          			</div>-->
+<!--          		</div>-->
+
+
+
+				<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+    <h4 class="mb-5 text-center">Book Now</h4>
+    <div class="fields">
+        <div class="row">
+			<form action="{% url 'save_user_profile' %}" method="POST">
+				{% csrf_token %}
+            <div class="col-md-6">
+                <input type="text" name="Name" class="form-control" placeholder="Name">
+            </div>
+				<div class="col-md-6">
+                <input type="text"  class="form-control" placeholder="location" name="location">
+            </div>
+            <div class="col-md-6">
+                <input type="email" name="email" class="form-control" placeholder="Email">
+            </div>
+            <!-- Additional fields here -->
+            <div class="col-md-12">
+                <button type="submit" onclick="initiateBooking()" class="btn btn-success py-3">Payment</button>
+            </div>
+				</form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--          		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">-->
+<!--          			<h4 class="mb-5 text-center">Book Now</h4>-->
+<!--          			<div class="fields">-->
+<!--          				<div class="row">-->
+<!--          					<div class="col-md-6">-->
+<!--				              <div class="form-group">-->
+<!--				                <input type="text" class="form-control" placeholder="Name">-->
+<!--				              </div>-->
+<!--			              </div>-->
+<!--			              <div class="col-md-6">-->
+<!--				              <div class="form-group">-->
+<!--				                <input type="text" class="form-control" placeholder="Email">-->
+<!--				              </div>-->
+<!--			              </div>-->
+<!--			              <div class="col-md-6">-->
+<!--				              <div class="form-group">-->
+<!--				                <input type="text" id="checkin_date" class="form-control" placeholder="Date from">-->
+<!--				              </div>-->
+<!--			              </div>-->
+<!--			              <div class="col-md-6">-->
+<!--				              <div class="form-group">-->
+<!--				                <input type="text" id="checkin_date" class="form-control" placeholder="Date to">-->
+<!--				              </div>-->
+<!--				            </div>-->
+<!--				            <div class="col-md-6">-->
+<!--					            <div class="form-group">-->
+<!--				                <div class="select-wrap one-third">-->
+<!--			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>-->
+<!--			                    <select name="" id="" class="form-control" placeholder="Guest">-->
+<!--			                      <option value="0">Guest</option>-->
+<!--			                      <option value="1">1</option>-->
+<!--			                      <option value="2">2</option>-->
+<!--			                      <option value="3">3</option>-->
+<!--			                      <option value="4">4</option>-->
+<!--			                    </select>-->
+<!--			                  </div>-->
+<!--				              </div>-->
+<!--			              </div>-->
+<!--			              <div class="col-md-6">-->
+<!--					            <div class="form-group">-->
+<!--				                <div class="select-wrap one-third">-->
+<!--			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>-->
+<!--			                    <select name="" id="" class="form-control" placeholder="Children">-->
+<!--			                      <option value="0">Children</option>-->
+<!--			                      <option value="1">1</option>-->
+<!--			                      <option value="2">2</option>-->
+<!--			                      <option value="3">3</option>-->
+<!--			                      <option value="4">4</option>-->
+<!--			                    </select>-->
+<!--			                  </div>-->
+<!--				              </div>-->
+<!--			              </div>-->
+<!--				            <div class="col-md-12">-->
+<!--				              <div class="form-group">-->
+<!--&lt;!&ndash;				                <input type="submit" value="payment" class="btn btn-primary py-3">&ndash;&gt;-->
+<!--								  <input type="submit" value="payment" class="btn btn-success py-3">&ndash;&gt;-->
+<!--&lt;!&ndash;								  <input type="submit" value="Payment" class="btn btn-success py-3 px-4" style="width: auto; display: inline-block;">&ndash;&gt;-->
+
+<!--				              </div>-->
+<!--			              </div>-->
+<!--		              </div>-->
+<!--		            </div>-->
+<!--          		</div>-->
+
+
+
+
+          		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+          			<h4 class="mb-4">Review &amp; Ratings</h4>
+          			<div class="row">
+          				<div class="col-md-6">
+          					<form method="post" class="star-rating">
+										  <div class="form-check">
+												<input type="checkbox" class="form-check-input" id="exampleCheck1">
+												<label class="form-check-label" for="exampleCheck1">
+													<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> 100 Ratings</span></p>
+												</label>
+										  </div>
+										  <div class="form-check">
+									      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+									      <label class="form-check-label" for="exampleCheck1">
+									    	   <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i> 30 Ratings</span></p>
+									      </label>
+										  </div>
+										  <div class="form-check">
+									      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+									      <label class="form-check-label" for="exampleCheck1">
+									      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 5 Ratings</span></p>
+									     </label>
+										  </div>
+										  <div class="form-check">
+										    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+									      <label class="form-check-label" for="exampleCheck1">
+									      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
+									      </label>
+										  </div>
+										  <div class="form-check">
+									      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+									      <label class="form-check-label" for="exampleCheck1">
+									      	<p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
+										    </label>
+										  </div>
+										</form>
+          				</div>
+          			</div>
+          		</div>
+<!--          		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">-->
+<!--          			<h4 class="mb-4">Related Hotels</h4>-->
+<!--          			<div class="row">-->
+<!--          				<div class="col-md-4">-->
+<!--				    				<div class="destination">-->
+<!--&lt;!&ndash;				    					<a href="hotel-single.html" class="img img-2" style="background-image: url(images/hotel-1.jpg);"></a>&ndash;&gt;-->
+<!--				    					<div class="text p-3">-->
+<!--				    						<div class="d-flex">-->
+<!--				    							<div class="one">-->
+<!--						    						<h3><a href="hotel-single.html">Hotel, Italy</a></h3>-->
+<!--						    						<p class="rate">-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star-o"></i>-->
+<!--						    							<span>8 Rating</span>-->
+<!--						    						</p>-->
+<!--					    						</div>-->
+<!--					    						<div class="two">-->
+<!--					    							<span class="price per-price">$40<br><small>/night</small></span>-->
+<!--				    							</div>-->
+<!--				    						</div>-->
+<!--				    						<p>Far far away, behind the word mountains, far from the countries</p>-->
+<!--				    						<hr>-->
+<!--				    						<p class="bottom-area d-flex">-->
+<!--				    							<span><i class="icon-map-o"></i> Miami, Fl</span>-->
+<!--				    							<span class="ml-auto"><a href="#">Book Now</a></span>-->
+<!--				    						</p>-->
+<!--				    					</div>-->
+<!--				    				</div>-->
+<!--				    			</div>-->
+<!--				    			<div class="col-md-4">-->
+<!--				    				<div class="destination">-->
+<!--&lt;!&ndash;				    					<a href="hotel-single.html" class="img img-2" style="background-image: url(images/hotel-2.jpg);"></a>&ndash;&gt;-->
+<!--				    					<div class="text p-3">-->
+<!--				    						<div class="d-flex">-->
+<!--				    							<div class="one">-->
+<!--						    						<h3><a href="hotel-single.html">Hotel, Italy</a></h3>-->
+<!--						    						<p class="rate">-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star-o"></i>-->
+<!--						    							<span>8 Rating</span>-->
+<!--						    						</p>-->
+<!--					    						</div>-->
+<!--					    						<div class="two">-->
+<!--					    							<span class="price per-price">$40<br><small>/night</small></span>-->
+<!--				    							</div>-->
+<!--				    						</div>-->
+<!--				    						<p>Far far away, behind the word mountains, far from the countries</p>-->
+<!--				    						<hr>-->
+<!--				    						<p class="bottom-area d-flex">-->
+<!--				    							<span><i class="icon-map-o"></i> Miami, Fl</span>-->
+<!--				    							<span class="ml-auto"><a href="#">Book Now</a></span>-->
+<!--				    						</p>-->
+<!--				    					</div>-->
+<!--				    				</div>-->
+<!--				    			</div>-->
+<!--				    			<div class="col-md-4">-->
+<!--				    				<div class="destination">-->
+<!--&lt;!&ndash;				    					<a href="hotel-single.html" class="img img-2" style="background-image: url(images/hotel-3.jpg);"></a>&ndash;&gt;-->
+<!--				    					<div class="text p-3">-->
+<!--				    						<div class="d-flex">-->
+<!--				    							<div class="one">-->
+<!--						    						<h3><a href="hotel-single.html">Hotel, Italy</a></h3>-->
+<!--						    						<p class="rate">-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star"></i>-->
+<!--						    							<i class="icon-star-o"></i>-->
+<!--						    							<span>8 Rating</span>-->
+<!--						    						</p>-->
+<!--					    						</div>-->
+<!--					    						<div class="two">-->
+<!--					    							<span class="price per-price">$40<br><small>/night</small></span>-->
+<!--				    							</div>-->
+<!--				    						</div>-->
+<!--				    						<p>Far far away, behind the word mountains, far from the countries</p>-->
+<!--				    						<hr>-->
+<!--				    						<p class="bottom-area d-flex">-->
+<!--				    							<span><i class="icon-map-o"></i> Miami, Fl</span>-->
+<!--				    							<span class="ml-auto"><a href="#">Book Now</a></span>-->
+<!--				    						</p>-->
+<!--				    					</div>-->
+<!--				    				</div>-->
+<!--				    			</div>-->
+<!--          			</div>-->
+<!--          		</div>-->
+
+          	</div>
+          </div> <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">JourneyJunction</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Service</a></li>
+                <li><a href="#" class="py-2 d-block">Terms and Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Become a partner</a></li>
+                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                <li><a href="#" class="py-2 d-block">How it works</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Infopark Kochi, located in Kakkanad,</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">9188244910</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">JourneyJunction.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'js/google-map.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+<!--  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>-->
+<!--  <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-timepicker@1.13.0/jquery.timepicker.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+
+
+  </body>
+</html>
